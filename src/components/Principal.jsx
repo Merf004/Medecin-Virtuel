@@ -1,6 +1,7 @@
 import React from "react";
 import backgroundImage from './27230.jpg';
 import TextCarousel from "./TextCarousel";
+import {Link} from "react-router-dom" 
 
 function Principal(){
 
@@ -34,7 +35,8 @@ function Principal(){
   >
     <h1>Bienvenue dans votre outil de détection du paludisme</h1>
     <TextCarousel texts={texts} interval={8000} />
-    <button type="button" className="btn btn-success btn-lg" style={{width:"30%"}}>Commencer</button>
+    <Link to = '/listepatients'><button type="button" className="btn btn-success btn-lg" style={{width:"100%"}}>Commencer</button></Link>
+    
     
 </div>
 }
