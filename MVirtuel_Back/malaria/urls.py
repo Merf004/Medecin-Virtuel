@@ -1,0 +1,43 @@
+from django.urls import path
+from . import views
+from .views import (
+    EnregistrerPatient,
+    AnalyseFrottis,
+    GenererRapport,
+    DeletePatient,
+    ShowPatient,
+    GetPatientDetail,
+    DeletePatient,
+    UpdatePatient,
+    GetResultsPatient,
+    GetResultsPatientDetail,
+    GetNombrePatient,
+    PatientParSexe,
+    DerniersPatientAnalyser,
+    PatientParaziteNonParazite,
+    EvolutionMensuelleParasites,
+    RepartitionParSexeParasites,
+    TotalAnalyseEffectuees,
+    PatientsInfectesTrancheAge,
+    )
+
+urlpatterns = [
+    path('patients/', EnregistrerPatient, name='patient-create'),
+    path('rapportpdf/', GenererRapport, name='generer-rapport'),
+    path('deletepatients/<int:pk>/', views.DeletePatient,name='delete-patient' ),
+    path('showpatient/', ShowPatient, name='show-patient'),
+    path('patientdetail/<int:patient_id>/', GetPatientDetail, name='patient-detail'),
+    path('patientdelete/<int:pk>/delete/', DeletePatient, name='delete-patient'),
+    path('updatepatient/<int:pk>/update/', UpdatePatient, name='update-patient'),
+    path('analyse/', AnalyseFrottis, name='analyse-image'),
+    path('getresults/', GetResultsPatient, name='get-results'),
+    path('getresultdetail/<int:patient_id>/', GetResultsPatientDetail, name='get-result-detail'),
+    path('nombrepatient/', GetNombrePatient, name='nombre-patient'),
+    path('patientparsexe/', PatientParSexe, name='patient-sexe'),
+    path('analyserepartie/', PatientParaziteNonParazite, name='patient-parasite-non-parasite'),
+    path('derniereanalyse/', DerniersPatientAnalyser, name='dernieres-analyse'),
+    path('evolutionmensuelleparasite/', EvolutionMensuelleParasites, name='evolution-parasite'),
+    path('repartitionsexeparasite/', RepartitionParSexeParasites, name='repartion-sexe-parasite'),
+    path('totalanalyse/', TotalAnalyseEffectuees, name='total-analyse'),
+    path('trancheageinfectees/', PatientsInfectesTrancheAge, name='tranche-age-infectees'),
+]
